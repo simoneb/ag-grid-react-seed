@@ -36,8 +36,8 @@ export default class extends Component {
 
     render() {
         let containerStyle = {
-            height: 400,
-            width: 945
+            height: 115,
+            width: 500
         };
 
         return (
