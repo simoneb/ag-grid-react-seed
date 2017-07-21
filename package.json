@@ -1,6 +1,6 @@
 {
   "name": "ag-grid-react-seed",
-  "version": "1.0.0",
+  "version": "12.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/ceolter/ag-grid-react-seed#readme",
   "dependencies": {
-    "ag-grid": "10.0.1",
-    "ag-grid-react": "10.0.0",
+    "ag-grid": "12.0.0",
+    "ag-grid-react": "12.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
