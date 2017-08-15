@@ -1,21 +1,33 @@
-const path = require('path');
+// webpack.prod.js
+var webpack = require('webpack');
+var path = require('path');
+var helpers = require('./helpers');
 
-const helpers = require('./helpers');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    devtool: 'source-map',
+
     entry: "./src/index.js",
+
     output: {
         path: helpers.root('dist'),
-        publicPath: 'http://localhost:8080/',
-        filename: '[name].js'
+        publicPath: '/',
+        filename: '[name].js',
+    },
+
+    resolve: {
+        alias: {
+            "ag-grid-root" : "../node_modules/ag-grid"
+        },
+        extensions: ['.js', '.jsx']
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.css$/,
-                loader: "style!css"
+                loader: "style-loader!css-loader"
             },
             {
                 test: /\.js$|\.jsx$/,
@@ -31,23 +43,13 @@ module.exports = {
         ]
     },
 
-    resolve: {
-        alias: {
-            "ag-grid-root" : "../node_modules/ag-grid"
-        },
-        extensions: ['', '.js', '.jsx']
-    },
-
     plugins: [
         new HtmlWebpackPlugin({
             template: 'config/index.html'
-        })
+        }),
 
-    ],
+        new webpack.optimize.DedupePlugin(),
 
-    devServer: {
-        historyApiFallback: true,
-        contentBase: './',
-        hot: true
-    }
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 };

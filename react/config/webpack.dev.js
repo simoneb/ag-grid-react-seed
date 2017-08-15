@@ -1,37 +1,21 @@
-// webpack.prod.js
-var webpack = require('webpack');
-var path = require('path');
-var helpers = require('./helpers');
+const path = require('path');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const helpers = require('./helpers');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
-
     entry: "./src/index.js",
-
     output: {
         path: helpers.root('dist'),
-        publicPath: '/',
-        filename: '[name].js',
-    },
-
-    htmlLoader: {
-        minimize: false // workaround for ng2
-    },
-
-    resolve: {
-        alias: {
-            "ag-grid-root" : "../node_modules/ag-grid"
-        },
-        extensions: ['', '.js', '.jsx']
+        publicPath: 'http://localhost:8080/',
+        filename: '[name].js'
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.css$/,
-                loader: "style!css"
+                loader: "style-loader!css-loader"
             },
             {
                 test: /\.js$|\.jsx$/,
@@ -47,13 +31,23 @@ module.exports = {
         ]
     },
 
+    resolve: {
+        alias: {
+            "ag-grid-root" : "../node_modules/ag-grid"
+        },
+        extensions: ['.js', '.jsx']
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
             template: 'config/index.html'
-        }),
+        })
 
-        new webpack.optimize.DedupePlugin(),
+    ],
 
-        new webpack.optimize.UglifyJsPlugin()
-    ]
+    devServer: {
+        historyApiFallback: true,
+        contentBase: './',
+        hot: true
+    }
 };
