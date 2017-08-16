@@ -12,7 +12,7 @@ export default class SimpleGridExample extends Component<{}, SimpleGridState> {
     private gridApi: GridApi;
     private columnApi: ColumnApi;
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
 
         this.state = {
@@ -21,7 +21,7 @@ export default class SimpleGridExample extends Component<{}, SimpleGridState> {
         }
     }
 
-    onGridReady(params) {
+    onGridReady(params: any) {
         this.gridApi = params.api;
         this.columnApi = params.columnApi;
 
