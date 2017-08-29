@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ceolter/ag-grid-react-seed.git"
+    "url": "git+https://github.com/ag-grid/ag-grid-react-seed.git"
   },
   "author": "Sean Landsman <sean@thelandsmans.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ceolter/ag-grid-react-seed/issues"
+    "url": "https://github.com/ag-grid/ag-grid-react-seed/issues"
   },
-  "homepage": "https://github.com/ceolter/ag-grid-react-seed#readme",
+  "homepage": "https://github.com/ag-grid/ag-grid-react-seed#readme",
   "dependencies": {
-    "ag-grid": "12.0.0",
-    "ag-grid-react": "12.0.0",
+    "ag-grid": "^13.0.0",
+    "ag-grid-react": "^13.0.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-dom-factories": "^1.0.1"
   },
   "devDependencies": {
     "babel-core": "6.24.1",
